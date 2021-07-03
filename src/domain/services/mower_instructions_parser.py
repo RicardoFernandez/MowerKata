@@ -1,14 +1,13 @@
-from src.domain.models.mower_movements import MowerMovements
-from src.domain.models.mower import Mower
+from src.domain.models.mower.mower_instructions import MowerMovements
+from src.domain.models.mower.mower import Mower
 
 
-class MowerMovementsParser:
+class MowerInstructionsParser:
     def __init__(self, plateau):
         self._plateau = plateau
 
     def parse(self, commands):
         initial_positions_with_movements = commands[:0] + commands[0+1:]
-        breakpoint()
         mowers_with_movements = (
             [
                 MowerMovements(Mower(self._plateau, initial_positions_with_movements[element]), initial_positions_with_movements[element + 1])
@@ -16,4 +15,5 @@ class MowerMovementsParser:
             ]
         )
         return mowers_with_movements
+
 

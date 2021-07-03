@@ -1,22 +1,16 @@
-from src.domain.services.mower_movements_parser import MowerMovementsParser
-from src.domain.models.mower import Mower
-from src.domain.models.plateau import Plateau
+from src.domain.services.mower_instructions_parser import MowerInstructionsParser
+from src.domain.models.plateau.plateau import Plateau
 
 
 class CommandsRunner:
     def execute(self, commands):
 
         plateau = Plateau(commands[0])
-        mowers_movements = MowerMovementsParser(plateau).parse(commands)
+        mowers_instructions = MowerInstructionsParser(plateau).parse(commands)
         mowers_state = []
-        for mower_movements in mowers_movements:
-            for movement in mower_movements.movements:
-                if movement == 'R':
-                    mower_movements.mower.turn_right()
-                if movement == 'L':
-                    mower_movements.mower.turn_left()
-                if movement == 'M':
-                    mower_movements.mower.move_forward()
+        for mower_instructions in mowers_instructions:
+            for instruction in mower_instructions.instructions:
+                instruction.execute()
 
-            mowers_state.append(mower_movements.mower.current_state())
+            mowers_state.append(mower_instructions.mower.current_state())
         return mowers_state

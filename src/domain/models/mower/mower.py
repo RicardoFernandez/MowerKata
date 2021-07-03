@@ -1,4 +1,4 @@
-from src.domain.models.plateau import Plateau
+from src.domain.models.plateau.plateau import Plateau
 
 
 class Mower:
