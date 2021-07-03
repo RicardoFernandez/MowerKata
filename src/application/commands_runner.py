@@ -3,8 +3,11 @@ from src.domain.models.plateau.plateau import Plateau
 
 
 class CommandsRunner:
-    def execute(self, commands):
+    def __init__(self, file_reader):
+        self._file_reader = file_reader
 
+    def execute(self):
+        commands = self._file_reader.read()
         plateau = Plateau(commands[0])
         mowers_instructions = MowerInstructionsParser(plateau).parse(commands)
         mowers_state = []
