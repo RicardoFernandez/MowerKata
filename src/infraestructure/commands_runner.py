@@ -10,8 +10,11 @@ class CommandsRunner:
         mowers_state = []
 
         for movement in desired_movements:
+            breakpoint()
             if movement == 'R':
                 mower.turn_right()
+            if movement == 'L':
+                mower.turn_left()
 
         mowers_state.append(mower.current_state())
         return mowers_state

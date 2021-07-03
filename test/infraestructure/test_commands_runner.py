@@ -7,10 +7,10 @@ class TestCommandsRunner:
 
     @pytest.fixture
     def new_mower_input_command(self):
-        return ['5 5', '1 2 N', 'R']
+        return ['5 5', '1 2 N', 'RL']
 
     def test_mower_rotates_to_right(self, new_mower_input_command):
         final_coordinates = CommandsRunner().execute(new_mower_input_command)
 
-        assert final_coordinates == ['1 2 E']
+        assert final_coordinates == ['1 2 N']
 

@@ -16,10 +16,24 @@ class Mower:
             self._facing_to = 'S'
             return
         if self._facing_to == 'S':
-            self._facing_to == 'W'
+            self._facing_to = 'W'
             return
         if self._facing_to == 'W':
-            self._facing_to == 'N'
+            self._facing_to = 'N'
+            return
+
+    def turn_left(self):
+        if self._facing_to == 'N':
+            self._facing_to = 'W'
+            return
+        if self._facing_to == 'W':
+            self._facing_to = 'S'
+            return
+        if self._facing_to == 'S':
+            self._facing_to = 'E'
+            return
+        if self._facing_to == 'E':
+            self._facing_to = 'N'
             return
 
     def current_state(self):
