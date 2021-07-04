@@ -1,6 +1,6 @@
 class FileReader:
     def __init__(self, path):
-        self.path=path
+        self.path = path
 
     def read(self):
         text_file = open(f'{self.path}', 'r')
