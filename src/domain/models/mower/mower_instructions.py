@@ -1,3 +1,4 @@
+from src.domain.models.mower.constants import INSTRUCTION_RIGHT, INSTRUCTION_LEFT, INSTRUCTION_FORWARD
 from src.domain.models.mower.exceptions import \
     InvalidInstructionForMowerException
 from src.domain.services.move_mower_forward import MoveMowerForward
@@ -15,11 +16,11 @@ class MowerInstructions:
     def _parse_instructions(self, instructions):
         result = []
         for instruction in instructions:
-            if instruction == 'R':
+            if instruction == INSTRUCTION_RIGHT:
                 result.append(TurnMowerToRight(self._mower))
-            if instruction == 'L':
+            if instruction == INSTRUCTION_LEFT:
                 result.append(TurnMowerToLeft(self._mower))
-            if instruction == 'M':
+            if instruction == INSTRUCTION_FORWARD:
                 result.append(MoveMowerForward(self._mower))
 
         return result
