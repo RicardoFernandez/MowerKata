@@ -7,11 +7,11 @@ class MowerInstructionsParser:
         self._plateau = plateau
 
     def parse(self, commands):
-        initial_positions_with_movements = commands[:0] + commands[0+1:]
+        commands_without_plateau = commands[:0] + commands[0+1:]
         mowers_with_movements = (
             [
-                MowerInstructions(Mower(self._plateau, initial_positions_with_movements[element]), initial_positions_with_movements[element + 1])
-                for element in range(0, len(initial_positions_with_movements), 2)
+                MowerInstructions(Mower(self._plateau, commands_without_plateau[element]), commands_without_plateau[element + 1])
+                for element in range(0, len(commands_without_plateau), 2)
             ]
         )
         return mowers_with_movements
