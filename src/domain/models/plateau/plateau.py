@@ -1,7 +1,10 @@
+from domain.models.plateau.constants import SEPARATOR, INDEX_FOR_X_AXIS, INDEX_FOR_Y_AXIS
+
+
 class Plateau:
     def __init__(self, size):
-        self._bound_x = size.split(' ')[0]
-        self._bound_y = size.split(' ')[1]
+        self._bound_x = size.split(SEPARATOR)[INDEX_FOR_X_AXIS]
+        self._bound_y = size.split(SEPARATOR)[INDEX_FOR_Y_AXIS]
 
     @property
     def bound_x(self):
