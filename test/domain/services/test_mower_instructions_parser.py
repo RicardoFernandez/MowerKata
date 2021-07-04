@@ -1,6 +1,6 @@
 import pytest
 
-from src.domain.models.mower.exceptions import InvalidInstructionForMowerException
+from src.domain.models.mower.exceptions import InvalidInstructionForMowerException, MowerOutOfBoundsException
 from src.domain.services.move_mower_forward import MoveMowerForward
 from src.domain.services.turn_mower_to_right import TurnMowerToRight
 from src.domain.services.mower_instructions_parser import MowerInstructionsParser
@@ -20,4 +20,9 @@ class TestMowerInstructionsParser:
     def test_exception_is_raised_for_invalid_movement(self, plateau):
         with pytest.raises(InvalidInstructionForMowerException):
             commands = ['5 5', '1 2 N', 'RXM']
+            MowerInstructionsParser(plateau).parse(commands)
+
+    def test_exception_is_raised_for_out_of_bounds_mower(self, plateau):
+        with pytest.raises(MowerOutOfBoundsException):
+            commands = ['5 5', '6 6 N', 'RXM']
             MowerInstructionsParser(plateau).parse(commands)
