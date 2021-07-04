@@ -1,8 +1,7 @@
 from src.domain.models.mower.exceptions import (
     InvalidInstructionForMowerException, MowerOutOfBoundsException)
 from src.domain.models.plateau.plateau import Plateau
-from src.domain.services.mower_instructions_parser import \
-    MowerInstructionsParser
+from src.domain.services.mower_instructions_parser import MowerInstructionsParser
 
 
 class CommandsRunner:

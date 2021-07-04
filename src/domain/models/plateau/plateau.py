@@ -1,5 +1,4 @@
-from domain.models.plateau.constants import (INDEX_FOR_X_AXIS,
-                                             INDEX_FOR_Y_AXIS, SEPARATOR)
+from src.domain.models.plateau.constants import (INDEX_FOR_X_AXIS, INDEX_FOR_Y_AXIS, SEPARATOR)
 
 
 class Plateau:
