@@ -3,13 +3,13 @@ from src.domain.services.turn_mower_to_left import TurnMowerToLeft
 from src.domain.services.turn_mower_to_right import TurnMowerToRight
 
 
-class MowerMovements:
+class MowerInstructions:
 
     def __init__(self, mower, instructions):
         self._mower = mower
-        self._instructions = self._parse_movements(instructions)
+        self._instructions = self._parse_instructions(instructions)
 
-    def _parse_movements(self, instructions):
+    def _parse_instructions(self, instructions):
         result = []
         for instruction in instructions:
             if instruction == 'R':
