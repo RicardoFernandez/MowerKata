@@ -1,6 +1,6 @@
+from src.domain.models.mower.exceptions import InvalidInstructionForMowerException, MowerOutOfBoundsException
 from src.domain.models.plateau.plateau import Plateau
-from src.domain.services.mower_instructions_parser import \
-    MowerInstructionsParser
+from src.domain.services.mower_instructions_parser import MowerInstructionsParser
 
 
 class CommandsRunner:
@@ -10,7 +10,14 @@ class CommandsRunner:
     def execute(self):
         commands = self._file_reader.read()
         plateau = Plateau(commands[0])
-        mowers_instructions = MowerInstructionsParser(plateau).parse(commands)
+
+        try:
+            mowers_instructions = MowerInstructionsParser(plateau).parse(commands)
+        except InvalidInstructionForMowerException as exception:
+            return [exception.message]
+        except MowerOutOfBoundsException as exception:
+            return [exception.message]
+
         mowers_state = []
         for mower_instructions in mowers_instructions:
             for instruction in mower_instructions.instructions:
