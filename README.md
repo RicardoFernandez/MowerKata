@@ -3,6 +3,8 @@
 Kata based in MarsRover kata.
 This kata has intended overengineering in order to put in practice DDD based in Hexagonal Architecture and some design patterns.
 
+In other languages would be easy to show decoupling implementing for Interfaces, I was thinking about do this using ABC classes but I decided not to do it.
+
 Developed using TDD outside-inside approach, trying to test from the point of view of the user and of course avoiding to test implementation details.
 
 Some validations are not finished:
