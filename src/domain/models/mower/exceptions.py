@@ -1,0 +1,2 @@
+class InvalidInstructionForMowerException(Exception):
+    pass

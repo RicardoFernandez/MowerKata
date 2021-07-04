@@ -1,3 +1,6 @@
+import pytest
+
+from src.domain.models.mower.exceptions import InvalidInstructionForMowerException
 from src.domain.services.move_mower_forward import MoveMowerForward
 from src.domain.services.turn_mower_to_right import TurnMowerToRight
 from src.domain.services.mower_instructions_parser import MowerInstructionsParser
@@ -13,3 +16,8 @@ class TestMowerInstructionsParser:
         assert len(instructions_for_mower[0].instructions) == 2
         assert isinstance(instructions_for_mower[0].instructions[0], TurnMowerToRight)
         assert isinstance(instructions_for_mower[0].instructions[1], MoveMowerForward)
+
+    def test_exception_is_raised_for_invalid_movement(self, plateau):
+        with pytest.raises(InvalidInstructionForMowerException):
+            commands = ['5 5', '1 2 N', 'RXM']
+            MowerInstructionsParser(plateau).parse(commands)
