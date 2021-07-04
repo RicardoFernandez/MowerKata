@@ -1,5 +1,9 @@
-from src.domain.models.mower.constants import CARDINAL_NOTH, CARDINAL_EAST, CARDINAL_SOUTH, CARDINAL_WEST, \
-    INDEX_FOR_X_AXIS, INDEX_FOR_Y_AXIS, INDEX_FOR_FACING, SEPARATOR, MOVEMENT_UNIT
+from src.domain.models.mower.constants import (CARDINAL_EAST, CARDINAL_NOTH,
+                                               CARDINAL_SOUTH, CARDINAL_WEST,
+                                               INDEX_FOR_FACING,
+                                               INDEX_FOR_X_AXIS,
+                                               INDEX_FOR_Y_AXIS, MOVEMENT_UNIT,
+                                               SEPARATOR)
 from src.domain.models.mower.exceptions import MowerOutOfBoundsException
 from src.domain.models.plateau.plateau import Plateau
 

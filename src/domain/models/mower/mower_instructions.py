@@ -1,4 +1,5 @@
-from src.domain.models.mower.exceptions import InvalidInstructionForMowerException
+from src.domain.models.mower.exceptions import \
+    InvalidInstructionForMowerException
 from src.domain.services.move_mower_forward import MoveMowerForward
 from src.domain.services.turn_mower_to_left import TurnMowerToLeft
 from src.domain.services.turn_mower_to_right import TurnMowerToRight

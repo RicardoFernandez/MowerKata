@@ -1,9 +1,11 @@
 import pytest
 
-from src.domain.models.mower.exceptions import InvalidInstructionForMowerException, MowerOutOfBoundsException
+from src.domain.models.mower.exceptions import (
+    InvalidInstructionForMowerException, MowerOutOfBoundsException)
 from src.domain.services.move_mower_forward import MoveMowerForward
+from src.domain.services.mower_instructions_parser import \
+    MowerInstructionsParser
 from src.domain.services.turn_mower_to_right import TurnMowerToRight
-from src.domain.services.mower_instructions_parser import MowerInstructionsParser
 
 
 class TestMowerInstructionsParser:
