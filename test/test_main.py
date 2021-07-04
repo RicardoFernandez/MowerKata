@@ -2,7 +2,6 @@ import io
 import sys
 from unittest.mock import patch
 
-from src.infraestructure.file_reader import FileReader
 from main import main
 
 

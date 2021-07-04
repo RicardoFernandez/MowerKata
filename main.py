@@ -8,6 +8,7 @@ def main(args):
     data = CommandsRunner(FileReader(args)).execute()
     ConsoleOutput().print(data)
 
+
 if __name__ == '__main__':
     import sys
     main(sys.argv[1])
